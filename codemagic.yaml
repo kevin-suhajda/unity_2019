@@ -30,7 +30,7 @@ workflows:
             curl -o ./unityhub.dmg https://public-cdn.cloud.unity3d.com/hub/prod/UnityHubSetup.dmg
             hdiutil attach ./unityhub.dmg
             cd "/Volumes/Unity Hub 3.1.1/"
-            sudo cp  Unity\ Hub.app /Applications
+            sudo cp -r  Unity\ Hub.app /Applications
             # hdiutil detach "/Volumes/Unity Hub 3.1.1/"      
         - name: Install Unity
           script: | 
