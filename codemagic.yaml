@@ -34,7 +34,8 @@ workflows:
             # hdiutil detach "/Volumes/Unity Hub 3.1.1/"      
         - name: Install Unity
           script: | 
-            /Applications/Unity\ Hub.app/Contents/MacOS/Unity\ Hub -- --headless install --version 2019.4.34f1 --changeset 6a9faed444f2     
+            /Applications/Unity\ Hub.app/Contents/MacOS/Unity\ Hub -- --headless install --version 2019.4.34f1 --changeset 6a9faed444f2
+          ignore_failure: true     
         - name: Activate Unity License
           script: |
             set -ex 
