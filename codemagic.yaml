@@ -31,7 +31,7 @@ workflows:
             hdiutil attach ./unityhub.dmg
             cd "/Volumes/Unity Hub 3.1.1/"
             sudo mv Unity\ Hub.app /Applications
-            hdiutil detach "/Volumes/Unity Hub 3.1.1/"      
+            # hdiutil detach "/Volumes/Unity Hub 3.1.1/"      
         - name: Install Unity
           script: | 
             /Applications/Unity\ Hub.app/Contents/MacOS/Unity\ Hub -- --headless install --version 2019.4.34f1 --changeset 6a9faed444f2 
