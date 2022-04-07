@@ -39,7 +39,7 @@ workflows:
         - name: Activate Unity License
           script: |
             set -ex 
-            $UNITY_BIN_VERSION -batchmode -quit -logFile ./activation.log -serial ${UNITY_SERIAL?} -username ${UNITY_USERNAME?} -password ${UNITY_PASSWORD?}
+            $UNITY_BIN_VERSION -batchmode -quit -serial ${UNITY_SERIAL?} -username ${UNITY_USERNAME?} -password ${UNITY_PASSWORD?} -logfile ./Logs/activation.log
         - name: Install modules
           script: | 
             /Applications/Unity\ Hub.app/Contents/MacOS/Unity\ Hub -- --headless install-modules --version 2019.4.34f1 -m ios android android-sdk-ndk-tools android-open-jdk
