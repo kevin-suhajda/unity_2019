@@ -30,15 +30,17 @@ workflows:
             curl -o ./unityhub.dmg https://public-cdn.cloud.unity3d.com/hub/prod/UnityHubSetup.dmg
             hdiutil attach ./unityhub.dmg
             cd "/Volumes/Unity Hub 3.1.1/"
-            sudo cp -r Unity\ Hub.app /Applications
+            sudo cp  Unity\ Hub.app /Applications
             # hdiutil detach "/Volumes/Unity Hub 3.1.1/"      
         - name: Install Unity
           script: | 
-            /Applications/Unity\ Hub.app/Contents/MacOS/Unity\ Hub -- --headless install --version 2019.4.34f1 --changeset 6a9faed444f2 
-            /Applications/Unity\ Hub.app/Contents/MacOS/Unity\ Hub -- --headless install-modules --version 2019.4.34f1 -m ios android android-sdk-ndk-tools android-open-jdk
+            /Applications/Unity\ Hub.app/Contents/MacOS/Unity\ Hub -- --headless install --version 2019.4.34f1 --changeset 6a9faed444f2     
         - name: Activate Unity License
           script: | 
             $UNITY_BIN_VERSION -batchmode -quit -logFile -serial ${UNITY_SERIAL?} -username ${UNITY_USERNAME?} -password ${UNITY_PASSWORD?}
+        - name: Install modules
+          script: | 
+            /Applications/Unity\ Hub.app/Contents/MacOS/Unity\ Hub -- --headless install-modules --version 2019.4.34f1 -m ios android android-sdk-ndk-tools android-open-jdk
         - name: Set up keystore
           script: |
             echo $FCI_KEYSTORE | base64 --decode > $FCI_BUILD_DIR/keystore.keystore            
